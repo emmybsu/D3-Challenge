@@ -47,7 +47,7 @@ d3.csv('/assets/data/data.csv').then((demoData) => {
         data.age = +data.age;
         data.smokes = +data.smokes;
         console.log(data)
-    
+    });
     //Step 2: Create scale functions
     // create x axis
     var xLinearScale = d3.scaleLinear()
@@ -80,7 +80,7 @@ d3.csv('/assets/data/data.csv').then((demoData) => {
     .enter()
     .append("circle")
     .attr("cx", d => xLinearScale(d.age))
-    .attr("cy", d=> yLinearScale(d.smokes))
+    .attr("cy", d => yLinearScale(d.smokes))
     .attr('r', '10')
     .attr('fill', 'royalblue')
     .attr('opacity', '.25');
@@ -145,7 +145,7 @@ d3.csv('/assets/data/data.csv').then((demoData) => {
     // Step 8: Create event listeners to display and hide the tooltip
     // mouseover event
     circlesGroup.on('mouseover', function(d) {
-        toolTip.style('display');
+        toolTip.style('display', 'block');
         toolTip.html(`${d.abbr}<hr><br>Median Age: ${d.age}<br>Smokes(%): ${d.smokes}`);
     
         toolTip.show(d, this);
@@ -171,7 +171,7 @@ d3.csv('/assets/data/data.csv').then((demoData) => {
     
 // }).catch((error) => {
 //     console.log(error);
-})
+
 })};
 
 //call responsiveChart when page loads
